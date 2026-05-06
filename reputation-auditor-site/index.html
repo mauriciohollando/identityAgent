@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Trust Auditor — identity and behavioral reputation for AI agents (A2A). API-ready trust scores and evidence for marketplaces and platforms." />
+  <title>Trust Auditor — Agent identity &amp; reputation</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="./index.html">Trust Auditor</a>
+      <nav>
+        <a href="./index.html#how">How it works</a>
+        <a href="./index.html#demo">Demo</a>
+        <a href="./pricing.html">Pricing</a>
+        <a href="#" data-role="github">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Trust scores for agents your customers rely on</h1>
+      <p class="lead">
+        <strong>Trust Auditor</strong> is an A2A-native API that combines <strong>identity signals</strong>
+        (optional registry quorum) with <strong>behavioral history</strong> (transaction outcomes) to produce
+        a <strong>trust score</strong>, <strong>status</strong>, and structured <strong>evidence</strong>—before you route money or sensitive work to another agent.
+      </p>
+      <p class="icp">
+        <strong>Who it’s for:</strong> teams building <strong>agent marketplaces</strong>, <strong>B2B agent platforms</strong>,
+        or internal <strong>treasury / risk</strong> gates that need a consistent, explainable trust layer—not a black-box score.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="./pricing.html">View pricing</a>
+        <a class="btn btn-secondary" href="#" data-role="github">Source &amp; docs</a>
+      </div>
+      <p class="truth">
+        <strong>Product truth:</strong> Reputation numbers come from <strong>your</strong> (or your partners’) transaction logs when you connect an MCP-style history service.
+        Without that, the stack can run in <strong>demo / stub</strong> mode—fine for integration tests, not for production buyer decisions.
+        See <a href="#" data-role="getting-started">Getting started</a> (configure <code>config.js</code> with your GitHub URL).
+      </p>
+    </section>
+
+    <section id="how" class="card">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li><strong>Ingest outcomes</strong> — Your platform records <code>success</code>, <code>failure</code>, <code>refunded</code>, etc., into the transaction log (or compatible MCP sources).</li>
+        <li><strong>Audit on demand</strong> — Call the auditor with <code>target_agent_id</code> and context; optional registries attest identity.</li>
+        <li><strong>Decide with evidence</strong> — You get a <strong>trust score</strong>, <strong>APPROVED / FLAGGED / REVIEW_REQUIRED</strong>, warnings, and a payload suitable for policy engines.</li>
+      </ol>
+    </section>
+
+    <section id="demo" class="card">
+      <h2>Demo</h2>
+      <p>
+        Drop a short Loom or YouTube embed URL into <code>reputation-auditor-site/config.js</code> (<code>demoVideoEmbedUrl</code>),
+        or watch the repo’s <strong>Getting started</strong> to run the stack locally in a few minutes.
+      </p>
+      <div id="demo-video-embed"></div>
+      <p class="muted" style="color:var(--muted);font-size:0.9rem;margin-top:1rem">
+        Example response shape (illustrative; not live data):
+      </p>
+      <pre class="sample-json">{
+  "trust_score": 82.5,
+  "status": "APPROVED",
+  "identity_valid": true,
+  "performance": { "success_rate": 0.91, "sample_size": 120, "source": "mcp" },
+  "warnings": [],
+  "evidence": { "...": "structured decision-support payload" }
+}</pre>
+    </section>
+
+    <footer class="site-footer">
+      <p>
+        <a href="./terms.html">Terms</a>
+        <a href="./privacy.html">Privacy</a>
+        <a href="./pricing.html">Pricing</a>
+        <a href="mailto:hollandomauricio@gmail.com" data-role="contact-email">Contact</a>
+      </p>
+      <p>Trust Auditor — decision-support software; not a guarantee of future behavior.</p>
+    </footer>
+  </main>
+
+  <script src="./config.js"></script>
+  <script src="./site.js"></script>
+</body>
+</html>

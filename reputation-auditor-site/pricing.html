@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Trust Auditor pricing — subscription tiers for verification volume (Starter, Growth, Scale)." />
+  <title>Pricing — Trust Auditor</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="./index.html">Trust Auditor</a>
+      <nav>
+        <a href="./index.html">Home</a>
+        <a href="./index.html#demo">Demo</a>
+        <a href="./pricing.html">Pricing</a>
+        <a href="#" data-role="github">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Pricing</h1>
+      <p class="lead">
+        We sell <strong>subscription tiers</strong> with monthly <strong>included verifications</strong> (see your deployment’s
+        <code>AP2_SUBSCRIPTION_TIERS_JSON</code>) plus <strong>per-call</strong> options for hybrid billing.
+        Complete checkout on Stripe; we’ll map your workspace to entitlements after purchase.
+      </p>
+    </section>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Starter</h3>
+        <p class="amt">$49<span style="font-size:0.85rem;font-weight:400;color:var(--muted)">/mo</span></p>
+        <p class="note">For pilots and single-product teams. Includes a monthly pool of verifications (configured on the auditor).</p>
+        <a class="btn btn-primary" href="#" data-subscribe="starter">Subscribe</a>
+      </div>
+      <div class="price-card">
+        <h3>Growth</h3>
+        <p class="amt">$199<span style="font-size:0.85rem;font-weight:400;color:var(--muted)">/mo</span></p>
+        <p class="note">For marketplaces and growing agent surface area. Higher included verification volume.</p>
+        <a class="btn btn-primary" href="#" data-subscribe="growth">Subscribe</a>
+      </div>
+      <div class="price-card">
+        <h3>Scale</h3>
+        <p class="amt">$499<span style="font-size:0.85rem;font-weight:400;color:var(--muted)">/mo</span></p>
+        <p class="note">For platforms with heavy A2A traffic. Largest included pool; contact us for enterprise.</p>
+        <a class="btn btn-primary" href="#" data-subscribe="scale">Subscribe</a>
+      </div>
+    </div>
+
+    <section class="card">
+      <h2>How checkout works</h2>
+      <ol class="steps">
+        <li>Create <strong>Stripe Payment Links</strong> (or Checkout links) for each price in the <strong>live</strong> Stripe Dashboard.</li>
+        <li>Paste those URLs into <code>reputation-auditor-site/config.js</code> under <code>stripePaymentLinks</code>.</li>
+        <li>Deploy this static site. Buttons open Stripe; after payment, ensure your <strong>Stripe Customer</strong> is mapped to your <strong>hiring_agent_id</strong> on the payment adapter (see repo docs).</li>
+      </ol>
+      <p class="truth">
+        Until links are configured, buttons fall back to <strong>email</strong> so you never ship secret keys in the browser.
+      </p>
+    </section>
+
+    <footer class="site-footer">
+      <p>
+        <a href="./index.html">Home</a>
+        <a href="./terms.html">Terms</a>
+        <a href="./privacy.html">Privacy</a>
+        <a href="mailto:hollandomauricio@gmail.com" data-role="contact-email">Contact</a>
+      </p>
+    </footer>
+  </main>
+
+  <script src="./config.js"></script>
+  <script src="./site.js"></script>
+</body>
+</html>

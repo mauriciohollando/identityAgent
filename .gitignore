@@ -1,0 +1,18 @@
+.venv/
+.cursor/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.env
+.env.*
+!.env.example
+.DS_Store
+
+# Local data & secrets
+data/
+*.db
+!**/migrations/*.sql
+*-key.json
+*credentials*.json
+service-account*.json

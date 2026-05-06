@@ -1,0 +1,23 @@
+[project]
+name = "trust-auditor-agent"
+version = "1.0.0"
+description = "A2A-native trust layer: identity and reputation auditing with AP2 payment gate."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "google-adk[a2a]>=1.0.0",
+  "uvicorn[standard]>=0.34.0",
+  "httpx>=0.28.0",
+  "cryptography>=44.0.0",
+  "stripe>=13.0.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0", "pytest-asyncio>=0.24.0"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,38 @@
+{
+  "name": "Trust Auditor",
+  "description": "A2A trust layer: verifies agent identity (optional multi-registry) and behavioral reputation from transaction history before high-stakes agent-to-agent flows. Decision-support scores, not guarantees.",
+  "version": "1.0.0",
+  "protocolVersion": "0.3.0",
+  "url": "https://reputation-auditor-2j7ethgffq-uc.a.run.app/",
+  "documentationUrl": "https://github.com/mauriciohollando/identityAgent/blob/main/docs/GETTING_STARTED.md",
+  "preferredTransport": "JSONRPC",
+  "capabilities": {
+    "extensions": [
+      {
+        "uri": "https://reputation-auditor-2j7ethgffq-uc.a.run.app/.well-known/agent-card.json#ap2-billing",
+        "description": "Per-verification and subscription billing via AP2-style gateway (see docs/PAYMENTS_INTEGRATION.md in repo).",
+        "params": {
+          "unit_price": 0.1,
+          "currency": "USD"
+        }
+      }
+    ]
+  },
+  "defaultInputModes": ["text/plain"],
+  "defaultOutputModes": ["text/plain"],
+  "skills": [
+    {
+      "id": "verify_identity",
+      "name": "Identity Check",
+      "description": "Verify agent id format and optional registry-backed signals (quorum across identity registries).",
+      "tags": ["identity", "registry", "trust"]
+    },
+    {
+      "id": "audit_reputation",
+      "name": "Reputation Audit",
+      "description": "Combine identity validity with MCP-backed transaction success rates; emit trust score, status, and structured evidence.",
+      "tags": ["reputation", "history", "mcp"]
+    }
+  ],
+  "supportsAuthenticatedExtendedCard": false
+}

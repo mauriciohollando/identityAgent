@@ -1,0 +1,68 @@
+# Local stack: transaction log (8090) + Trust Auditor A2A (8080).
+# Set GOOGLE_API_KEY in .env or environment before `docker compose up auditor`.
+
+services:
+  identity-registry:
+    build:
+      context: .
+      dockerfile: Dockerfile.registry
+    ports:
+      - "8091:8091"
+    environment:
+      IDENTITY_REGISTRY_DB_PATH: /data/identity_registry.db
+    volumes:
+      - identity_registry_data:/data
+
+  transaction-log:
+    build:
+      context: .
+      dockerfile: Dockerfile.logservice
+    ports:
+      - "8090:8090"
+    environment:
+      TRANSACTION_LOG_DB_PATH: /data/transaction_log.db
+      LOG_AGGREGATION_WINDOW_DAYS: "90"
+    volumes:
+      - transaction_log_data:/data
+
+  stripe-adapter:
+    build:
+      context: .
+      dockerfile: Dockerfile.stripeadapter
+    ports:
+      - "8092:8092"
+    environment:
+      STRIPE_ADAPTER_DB_PATH: /data/stripe_adapter.db
+      PAYMENT_CURRENCY: USD
+      AUDITOR_WEBHOOK_URL: http://auditor:8080/internal/webhooks/payment
+      AUDITOR_SUBSCRIPTION_SYNC_URL: http://auditor:8080/internal/webhooks/subscription-sync
+    env_file:
+      - .env
+    volumes:
+      - stripe_adapter_data:/data
+
+  auditor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      MCP_SERVER_BASE_URL: http://transaction-log:8090
+      IDENTITY_REGISTRY_URL: http://identity-registry:8091
+      AGENT_PUBLIC_BASE_URL: http://localhost:8080/
+      DISPUTES_DB_PATH: /app/data/disputes.db
+      AP2_MODE: live
+      AP2_BILLING_MODE: per_call
+      AP2_GATEWAY_URL: http://stripe-adapter:8092
+    env_file:
+      - .env
+    depends_on:
+      - transaction-log
+      - identity-registry
+      - stripe-adapter
+
+volumes:
+  transaction_log_data:
+  identity_registry_data:
+  stripe_adapter_data:
