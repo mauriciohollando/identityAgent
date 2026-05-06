@@ -1,6 +1,6 @@
 # Architecture (overview)
 
-High-level data flow for the Trust Auditor platform.
+High-level data flow for **Trust Auditor** as an **agent handoff gate**: callers get allow / deny / review-style signals and **structured evidence** before delegating work or releasing funds.
 
 ```mermaid
 flowchart LR
@@ -38,7 +38,7 @@ flowchart LR
 
 | Piece | Role |
 |--------|------|
-| **auditor** | ADK agent: `verify_identity`, `audit_reputation`; combines registry + performance → trust score + evidence. |
+| **auditor** | ADK agent: `verify_identity`, `audit_reputation` (full handoff audit). Combines identity registry signals + behavioral aggregates from the transaction log → trust score, status, and evidence for policy / payout gates. |
 | **transaction_log** | Records per-agent outcomes; exposes aggregates consumed as MCP-shaped HTTP. |
 | **identity_registry** | Optional attestations (`registered`, `operator_verified`, `partner_attested`). |
 | **stripe_adapter** | AP2-like gateway: mandates, refunds, Checkout, Billing Portal, webhooks → auditor. |
@@ -47,8 +47,8 @@ flowchart LR
 ## Trust score (summary)
 
 - **Identity** component from registry quorum (or defaults when unset).
-- **Performance** component from `success_rate` over a rolling window (see [TRANSACTION_MODEL.md](TRANSACTION_MODEL.md)).
-- Blended **trust score** and **status** with tier rules (`VERIFICATION_TIER`, sample size). Details: `src/auditor.py`.
+- **Performance** component from `success_rate` over a rolling window — **observed behavior** from your log, not a global reputation graph (see [TRANSACTION_MODEL.md](TRANSACTION_MODEL.md)).
+- Blended **trust score** and **status** with tier rules (`VERIFICATION_TIER`, sample size). Consumers map these to **allow**, **deny**, or **human review** before handoff or payout. Details: `src/auditor.py`.
 
 ## Deployment notes
 

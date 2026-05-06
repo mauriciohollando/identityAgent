@@ -15,7 +15,7 @@
 | [docs/STRIPE_PAYMENT_LINKS.md](docs/STRIPE_PAYMENT_LINKS.md) | Regenerate Payment Links (CLI + Dashboard) |
 | [docs/DEMO_VIDEO_SCRIPT.md](docs/DEMO_VIDEO_SCRIPT.md) | ~90s Loom / screen recording script |
 | [docs/CUSTOM_DOMAIN_EMAIL.md](docs/CUSTOM_DOMAIN_EMAIL.md) | Domain, hosting, professional email |
-| [docs/ACCELERATOR_READINESS_CHECKLIST.md](docs/ACCELERATOR_READINESS_CHECKLIST.md) | YC / launch backlog |
+| [docs/ACCELERATOR_READINESS_CHECKLIST.md](docs/ACCELERATOR_READINESS_CHECKLIST.md) | What’s in repo vs. your next steps (demo, domain, live Stripe) |
 | [SECURITY.md](SECURITY.md) | Vulnerability reporting |
 
 **Public marketing site (static):** [reputation-auditor-site/](reputation-auditor-site/) — deploy to Netlify/GitHub Pages + edit `config.js` for GitHub URL, demo video, and Stripe Payment Links.

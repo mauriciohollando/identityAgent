@@ -2,6 +2,8 @@
 
 Use this checklist to move off a personal Gmail on the marketing site and look **B2B-credible** to Stripe, YC, and customers.
 
+**Context:** **Trust Auditor** is positioned as an **agent handoff gate** (allow / deny / review before delegation or payout). A custom domain and team inbox match that story better than a consumer Gmail on the contact and legal pages.
+
 ## 1. Pick and register a domain
 
 Examples of patterns (availability varies): `trustauditor.com`, `trytrustauditor.com`, `trustlayer.dev`, `agenttrust.io`.

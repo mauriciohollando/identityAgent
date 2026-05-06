@@ -13,7 +13,7 @@ Use this for a **Loom**, **QuickTime screen + mic**, or **YouTube**. Target audi
 ### [0:00–0:15] Hook
 
 **Say:**  
-“Agents are calling other agents and moving money. Before you approve the next hop, you need **identity plus behavioral history** — not a vanity ID. **Trust Auditor** gives you a **trust score**, **approve or flag**, and **structured evidence** in one API call.”
+“Agents call other agents and move money. Before the **next handoff** or **payout**, you need **identity plus behavioral history** from **your** log — not a vanity ID or a global reputation network. **Trust Auditor** is a **handoff gate**: **allow, flag, or require review**, with **structured evidence** in one API call.”
 
 **Show:**  
 GitHub repo `mauriciohollando/identityAgent` README (one scroll past the one-liner) **or** your public marketing site hero.
@@ -23,7 +23,7 @@ GitHub repo `mauriciohollando/identityAgent` README (one scroll past the one-lin
 ### [0:15–0:45] Ingest + audit
 
 **Say:**  
-“We record **outcomes** — success, failure, refund — into a small transaction log. The auditor aggregates a **success rate** over a time window, combines it with optional **registry** identity, and returns a **trust score**.”
+“We record **outcomes** — success, failure, refund — into a transaction log. The auditor aggregates **success rate** over a window, combines optional **registry** identity, and returns a **trust score** and status your router can treat as a **gate** before delegation or funds.”
 
 **Do:**
 
@@ -47,7 +47,7 @@ curl -s http://127.0.0.1:8081/v1/audit-reputation \
 ```
 
 **Say:**  
-“Here’s **trust_score**, **status**, **performance.sample_size**, and **evidence** — ready for your policy engine or AP2 payment gate.”
+“Here’s **trust_score**, **status**, **performance.sample_size**, and **evidence** — ready for your policy engine, router, or AP2-style payment gate.”
 
 ---
 

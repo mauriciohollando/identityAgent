@@ -1,6 +1,6 @@
-# Transaction log model (ground truth for reputation)
+# Transaction log model (ground truth for the handoff gate)
 
-This document defines what the **transaction log service** records and how those records become `success_rate` and `sample_size` for the Trust Auditor.
+This document defines what the **transaction log service** records and how those records become `success_rate` and `sample_size` for **Trust Auditor**. That behavioral signal powers **allow / deny / review** decisions before you delegate to another agent or release funds — not a generic “reputation score” from a third-party graph.
 
 ## Outcomes
 
