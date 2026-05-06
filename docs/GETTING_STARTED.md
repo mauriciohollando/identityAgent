@@ -1,6 +1,6 @@
 # Getting started
 
-Run the **Trust Auditor** locally, send one transaction event, and call a reputation audit.
+Run the **Trust Auditor** (**agent handoff gate**) locally: log one transaction outcome, then call an audit the way you would before a handoff or payout.
 
 ## Prerequisites
 

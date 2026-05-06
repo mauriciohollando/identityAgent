@@ -1,11 +1,11 @@
-# Trust Auditor (A2A)
+# Trust Auditor — Agent handoff gate (A2A)
 
 [![CI](https://github.com/mauriciohollando/identityAgent/actions/workflows/ci.yml/badge.svg)](https://github.com/mauriciohollando/identityAgent/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**One-liner:** Trust Auditor is an **A2A-native API** that scores **agent identity + behavioral history** so platforms can gate **money and risk** before delegating to another agent—with **evidence**, not a black box.
+**Product:** **Trust Auditor** is the **agent handoff gate** — an **A2A-native API** that helps you **allow, deny, or escalate** before you **delegate work**, **hand off to another agent**, or **release funds**. It combines **identity signals** (optional registry), **behavioral history** (your transaction log), and **structured evidence** so you are not flying blind or trusting a black-box score.
 
-Serverless-friendly **Agent Identity & Reputation Auditor** using Google ADK with A2A, multi-source MCP-style history, registry-backed identity (optional), structured **evidence** payloads, **tier** rules, dispute intake, metrics, rate limits, and an AP2-style payment gate on A2A requests.
+**Stack:** Google ADK + A2A, MCP-style transaction history, optional identity registry, dispute intake, metrics, rate limits, and an **AP2-style payment gate** on verification traffic.
 
 | Doc | Purpose |
 |-----|---------|

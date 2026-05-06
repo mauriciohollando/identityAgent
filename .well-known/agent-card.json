@@ -1,6 +1,6 @@
 {
   "name": "Trust Auditor",
-  "description": "A2A trust layer: verifies agent identity (optional multi-registry) and behavioral reputation from transaction history before high-stakes agent-to-agent flows. Decision-support scores, not guarantees.",
+  "description": "Agent handoff gate (A2A): allow/deny/review before delegating to another agent or releasing funds—identity signals, behavioral history from your transaction log, structured evidence, optional AP2-style billing. Decision-support, not guarantees.",
   "version": "1.0.0",
   "protocolVersion": "0.3.0",
   "url": "https://reputation-auditor-2j7ethgffq-uc.a.run.app/",
@@ -24,13 +24,13 @@
     {
       "id": "verify_identity",
       "name": "Identity Check",
-      "description": "Verify agent id format and optional registry-backed signals (quorum across identity registries).",
+      "description": "Identity signals for the handoff gate: agent id validation and optional multi-registry quorum.",
       "tags": ["identity", "registry", "trust"]
     },
     {
       "id": "audit_reputation",
       "name": "Reputation Audit",
-      "description": "Combine identity validity with MCP-backed transaction success rates; emit trust score, status, and structured evidence.",
+      "description": "Full handoff audit: identity + behavioral history → trust score, APPROVED/FLAGGED/REVIEW_REQUIRED, warnings, evidence payload.",
       "tags": ["reputation", "history", "mcp"]
     }
   ],

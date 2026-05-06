@@ -1,6 +1,6 @@
 # Trust Auditor — public marketing site
 
-Static HTML/CSS/JS (no build step). Use for **Stripe business verification**, **YC**, and **prospects**.
+Static HTML/CSS/JS (no build step). **Positioning:** *agent handoff gate* (allow / deny / review before delegation or payout). Use for **Stripe verification**, **YC**, and **prospects**.
 
 ## Related docs (in repo)
 

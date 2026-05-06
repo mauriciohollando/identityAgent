@@ -1,5 +1,13 @@
 # Identity strategy: unique positioning + fast to market
 
+## Product wedge (v1): Agent handoff gate
+
+**Trust Auditor** is sold as one product: a **handoff / payout gate** for teams that ship agents which **delegate**, **call other agents**, or **move money**. Buyers are usually **technical leads** at small companies (seed–Series A), not “generic AI trust” committees.
+
+- **Headline job:** decide **allow / deny / review** before a high-stakes handoff, with **evidence**.
+- **Not v1 positioning:** global reputation network, universal agent certification, or bank-grade KYC claims.
+- **Identity ladder below** supports the gate (registered → operator_verified → partner_attested); the **transaction log** grounds behavior in **observed outcomes**.
+
 This is an **operator playbook**, not legal advice. It pairs with the reference registry in `src/identity_registry/`.
 
 ## What makes the service defensible

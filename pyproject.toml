@@ -1,7 +1,7 @@
 [project]
 name = "trust-auditor-agent"
 version = "1.0.0"
-description = "A2A-native trust layer: identity and reputation auditing with AP2 payment gate."
+description = "Agent handoff gate (A2A): identity + behavioral history + evidence before delegation or payout; AP2-style payment integration."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [

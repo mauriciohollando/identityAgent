@@ -209,11 +209,13 @@ root_agent = Agent(
     model=os.environ.get("AUDITOR_LLM_MODEL", "gemini-2.5-flash"),
     name="trust_auditor",
     instruction=(
-        "You are TrustAuditor, an A2A trust-layer agent. "
-        "For identity-only requests, call verify_identity with the target agent id "
+        "You are TrustAuditor, an A2A agent handoff gate: help callers decide allow/deny/review "
+        "before delegating to another agent or releasing funds. "
+        "For identity-only checks, call verify_identity with the target agent id "
         "and optional verification_tier: 'standard' or 'enterprise'. "
-        "For full reputation scoring, call audit_reputation with the target agent id, "
-        "a short context string (domain or transaction type), and optional verification_tier. "
+        "For a full handoff audit (identity + behavioral history + evidence), call audit_reputation "
+        "with the target agent id, a short context string (domain or transaction type), "
+        "and optional verification_tier. "
         "Summarize tool JSON (trust_score, status, warnings, evidence) clearly for the caller."
     ),
     tools=[

@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Trust Auditor — identity and behavioral reputation for AI agents (A2A). API-ready trust scores and evidence for marketplaces and platforms." />
-  <title>Trust Auditor — Agent identity &amp; reputation</title>
+  <meta name="description" content="Trust Auditor — agent handoff gate (A2A). Allow, deny, or review before delegating to another agent or releasing funds. Identity + behavioral history + evidence." />
+  <title>Trust Auditor — Agent handoff gate</title>
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="./index.html">Trust Auditor</a>
+      <a class="brand" href="./index.html">Trust Auditor <span style="font-weight:500;opacity:0.85;font-size:0.88rem">· handoff gate</span></a>
       <nav>
         <a href="./index.html#how">How it works</a>
         <a href="./index.html#demo">Demo</a>
@@ -22,15 +22,17 @@
 
   <main class="wrap">
     <section class="hero">
-      <h1>Trust scores for agents your customers rely on</h1>
+      <h1>Stop handoffs and payouts you haven’t earned the right to trust</h1>
       <p class="lead">
-        <strong>Trust Auditor</strong> is an A2A-native API that combines <strong>identity signals</strong>
-        (optional registry quorum) with <strong>behavioral history</strong> (transaction outcomes) to produce
-        a <strong>trust score</strong>, <strong>status</strong>, and structured <strong>evidence</strong>—before you route money or sensitive work to another agent.
+        <strong>Trust Auditor</strong> is the <strong>agent handoff gate</strong>: an A2A-native API that helps you
+        <strong>allow, deny, or escalate for review</strong> before you <strong>delegate</strong> work,
+        <strong>call another agent</strong>, or <strong>release funds</strong>. It combines <strong>identity signals</strong>
+        (optional registry), <strong>behavioral history</strong> (your transaction outcomes), and
+        <strong>structured evidence</strong>—so policy and compliance aren’t guessing.
       </p>
       <p class="icp">
-        <strong>Who it’s for:</strong> teams building <strong>agent marketplaces</strong>, <strong>B2B agent platforms</strong>,
-        or internal <strong>treasury / risk</strong> gates that need a consistent, explainable trust layer—not a black-box score.
+        <strong>Who it’s for first:</strong> small <strong>technical teams</strong> (often seed–Series A) shipping B2B or prosumer
+        <strong>agents that move money or high-impact actions</strong>—not “generic AI trust” for everyone.
       </p>
       <div class="cta-row">
         <a class="btn btn-primary" href="./pricing.html">View pricing</a>
@@ -44,11 +46,11 @@
     </section>
 
     <section id="how" class="card">
-      <h2>How it works</h2>
+      <h2>How the gate works</h2>
       <ol class="steps">
-        <li><strong>Ingest outcomes</strong> — Your platform records <code>success</code>, <code>failure</code>, <code>refunded</code>, etc., into the transaction log (or compatible MCP sources).</li>
-        <li><strong>Audit on demand</strong> — Call the auditor with <code>target_agent_id</code> and context; optional registries attest identity.</li>
-        <li><strong>Decide with evidence</strong> — You get a <strong>trust score</strong>, <strong>APPROVED / FLAGGED / REVIEW_REQUIRED</strong>, warnings, and a payload suitable for policy engines.</li>
+        <li><strong>Log what actually happened</strong> — Your platform records <code>success</code>, <code>failure</code>, <code>refunded</code>, etc., into the transaction log (or compatible MCP sources).</li>
+        <li><strong>Audit before handoff</strong> — On the path to delegation or payout, call the auditor with <code>target_agent_id</code> and context; optional registries add identity attestations.</li>
+        <li><strong>Enforce your policy</strong> — You get <strong>APPROVED / FLAGGED / REVIEW_REQUIRED</strong>, a <strong>trust score</strong> as an input (not a substitute for your rules), warnings, and <strong>evidence</strong> for audits.</li>
       </ol>
     </section>
 
@@ -85,7 +87,7 @@
         <a href="./pricing.html">Pricing</a>
         <a href="#" data-role="contact-email" data-show-address="false">Contact</a>
       </p>
-      <p>Trust Auditor — decision-support software; not a guarantee of future behavior.</p>
+      <p>Trust Auditor — handoff-gate decision-support; not a guarantee of future behavior or a universal certification.</p>
     </footer>
   </main>
 
