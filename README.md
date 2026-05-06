@@ -12,6 +12,9 @@ Serverless-friendly **Agent Identity & Reputation Auditor** using Google ADK wit
 | [docs/GETTING_STARTED.md](docs/GETTING_STARTED.md) | Clone → log service → first audit |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | System diagram & components |
 | [docs/GITHUB_PUBLISH.md](docs/GITHUB_PUBLISH.md) | Push this repo to GitHub safely |
+| [docs/STRIPE_PAYMENT_LINKS.md](docs/STRIPE_PAYMENT_LINKS.md) | Regenerate Payment Links (CLI + Dashboard) |
+| [docs/DEMO_VIDEO_SCRIPT.md](docs/DEMO_VIDEO_SCRIPT.md) | ~90s Loom / screen recording script |
+| [docs/CUSTOM_DOMAIN_EMAIL.md](docs/CUSTOM_DOMAIN_EMAIL.md) | Domain, hosting, professional email |
 | [docs/ACCELERATOR_READINESS_CHECKLIST.md](docs/ACCELERATOR_READINESS_CHECKLIST.md) | YC / launch backlog |
 | [SECURITY.md](SECURITY.md) | Vulnerability reporting |
 

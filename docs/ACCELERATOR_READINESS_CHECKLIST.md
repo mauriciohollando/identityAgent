@@ -12,7 +12,8 @@ Use this as the single source of truth for YC / accelerator prep and **customer-
 - [x] **`docs/GETTING_STARTED.md`**, **`docs/ARCHITECTURE.md`**, **`docs/GITHUB_PUBLISH.md`**
 - [x] **Agent card** — production-style `url`, `documentationUrl` placeholder, extension URI on same host (replace when you change domains)
 - [x] **Marketing site** — `reputation-auditor-site/`: home (ICP, how-it-works, demo block, product-truth), **pricing** with Stripe Payment Link wiring via `config.js`, updated terms/privacy stubs, shared `styles.css` + `site.js`
-- [ ] **You still must:** add **Stripe Payment Links** (live) in `reputation-auditor-site/config.js`, **demo video** URL, **domain** email + counsel review, **deck**, **traction**
+- [x] **Docs** — [STRIPE_PAYMENT_LINKS.md](STRIPE_PAYMENT_LINKS.md), [DEMO_VIDEO_SCRIPT.md](DEMO_VIDEO_SCRIPT.md), [CUSTOM_DOMAIN_EMAIL.md](CUSTOM_DOMAIN_EMAIL.md); site **contact** pulls from `config.js` (visible address on legal pages)
+- [ ] **You still must:** record **demo** → set `demoVideoEmbedUrl`; **custom domain** + **professional email** per [CUSTOM_DOMAIN_EMAIL.md](CUSTOM_DOMAIN_EMAIL.md); **live** Stripe links; counsel review; **deck**; **traction**
 
 **Legend:** 🔧 code/repo · ☁️ infra / DNS · 📣 copy / legal · 🎬 demo · 🔐 secrets
 

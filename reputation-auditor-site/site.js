@@ -18,6 +18,9 @@
     if (!em) return;
     document.querySelectorAll('a[data-role="contact-email"]').forEach(function (el) {
       el.setAttribute("href", "mailto:" + em);
+      if (el.getAttribute("data-show-address") !== "false") {
+        el.textContent = em;
+      }
     });
   }
 

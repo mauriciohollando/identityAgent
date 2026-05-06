@@ -2,6 +2,12 @@
 
 Static HTML/CSS/JS (no build step). Use for **Stripe business verification**, **YC**, and **prospects**.
 
+## Related docs (in repo)
+
+- [docs/DEMO_VIDEO_SCRIPT.md](../docs/DEMO_VIDEO_SCRIPT.md) — record the embed you put in `demoVideoEmbedUrl`
+- [docs/CUSTOM_DOMAIN_EMAIL.md](../docs/CUSTOM_DOMAIN_EMAIL.md) — domain, Pages/Netlify, `hello@` email
+- [docs/STRIPE_PAYMENT_LINKS.md](../docs/STRIPE_PAYMENT_LINKS.md) — test vs live Payment Links
+
 ## Edit before launch
 
 1. **`config.js`**
