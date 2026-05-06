@@ -68,9 +68,14 @@ curl -s http://127.0.0.1:8081/v1/audit-reputation \
 
 You should see `trust_score`, `status`, `performance`, and `evidence`.
 
-## 5. Without MCP (stub mode)
+## 5. Without MCP (stub vs production)
 
-If `MCP_SERVER_BASE_URL` / `MCP_SERVER_URLS` are unset, performance data comes from a **stub** generator—useful for CI, misleading for buyers. Always wire a log service for production demos.
+If `MCP_SERVER_BASE_URL` / `MCP_SERVER_URLS` are unset:
+
+- **`AP2_MODE=stub`** (default in `.env.example`): a **synthetic** success rate is generated for local dev. Audits include **`STUB_PERFORMANCE_DATA`** and **`REVIEW_REQUIRED`** so you do not auto-approve on fake numbers.
+- **`AP2_MODE=live`**: **no** synthetic data—performance is **`unavailable`** (`success_rate` 0, `sample_size` 0) with **`NO_PERFORMANCE_DATA`** and **`REVIEW_REQUIRED`**. Production must set **`MCP_SERVER_*`** to a real transaction log (or compatible aggregate HTTP API).
+
+Override (emergency demo only): `TRUST_AUDITOR_ALLOW_PERFORMANCE_STUB=true` with `AP2_MODE=live`—avoid in customer-facing production.
 
 ## 6. Payments & Stripe adapter
 
