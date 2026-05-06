@@ -11,10 +11,10 @@ async def test_audit_reputation_formula(monkeypatch):
         return {
             "success_rate": 1.0,
             "sample_size": 10,
-            "source": "stub",
+            "source": "mcp",
             "sources": [
                 {
-                    "name": "stub",
+                    "name": "mcp",
                     "success_rate": 1.0,
                     "sample_size": 10,
                     "ok": True,

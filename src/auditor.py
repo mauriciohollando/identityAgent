@@ -174,6 +174,10 @@ async def audit_reputation(
         status = "REVIEW_REQUIRED"
     elif "ENTERPRISE_REQUIRES_LIVE_MCP" in warnings:
         status = "REVIEW_REQUIRED"
+    elif "STUB_PERFORMANCE_DATA" in warnings:
+        status = "REVIEW_REQUIRED"
+    elif "NO_PERFORMANCE_DATA" in warnings:
+        status = "REVIEW_REQUIRED"
 
     notes = [w for w in warnings if w not in ("IDENTITY_SOURCE_ERROR",)]
 

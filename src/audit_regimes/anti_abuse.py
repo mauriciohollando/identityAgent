@@ -11,6 +11,8 @@ from tiers import TierSpec
 def collect_performance_warnings(perf: dict[str, Any]) -> list[str]:
     """Return machine-readable warning codes from aggregated performance."""
     warnings: list[str] = []
+    if perf.get("source") == "unavailable":
+        warnings.append("NO_PERFORMANCE_DATA")
     if perf.get("high_disagreement"):
         warnings.append("HIGH_SOURCE_DISAGREEMENT")
     for src in perf.get("sources") or []:
@@ -33,12 +35,15 @@ def collect_identity_warnings(identity: dict[str, Any]) -> list[str]:
 
 
 def tier_sample_warnings(perf: dict[str, Any], tier: TierSpec) -> list[str]:
-    if tier.name == "enterprise" and perf.get("source") == "stub":
+    src = perf.get("source")
+    if tier.name == "enterprise" and src == "stub":
         return ["ENTERPRISE_REQUIRES_LIVE_MCP"]
     n = int(perf.get("sample_size") or 0)
-    if n < tier.min_sample_for_approval and perf.get("source") != "stub":
+    if src == "unavailable":
         return ["INSUFFICIENT_SAMPLE_FOR_TIER"]
-    if n < tier.min_sample_for_approval and perf.get("source") == "stub":
+    if n < tier.min_sample_for_approval and src != "stub":
+        return ["INSUFFICIENT_SAMPLE_FOR_TIER"]
+    if n < tier.min_sample_for_approval and src == "stub":
         return ["STUB_PERFORMANCE_DATA"]
     return []
 

@@ -62,6 +62,19 @@ def test_enterprise_tier_stub_requires_review(client):
     assert "ENTERPRISE_REQUIRES_LIVE_MCP" in r.json()["warnings"]
 
 
+def test_live_mode_without_mcp_requires_review(client, monkeypatch):
+    monkeypatch.setenv("AP2_MODE", "live")
+    r = client.post(
+        "/v1/audit-reputation",
+        content=json.dumps({"target_agent_id": "live-agent-1", "context": "prod"}),
+    )
+    assert r.status_code == 200
+    body = r.json()
+    assert body["status"] == "REVIEW_REQUIRED"
+    assert "NO_PERFORMANCE_DATA" in body["warnings"]
+    assert body["performance"]["source"] == "unavailable"
+
+
 def test_create_dispute(client):
     r = client.post(
         "/v1/disputes",

@@ -26,6 +26,21 @@ def _env_float(name: str, default: float) -> float:
         return default
 
 
+def allow_performance_stub() -> bool:
+    """Synthetic performance when MCP is unset (dev/demo only).
+
+    When ``AP2_MODE=live``, stubs are **off** unless
+    ``TRUST_AUDITOR_ALLOW_PERFORMANCE_STUB=true`` is set explicitly (emergency dev only).
+    """
+    explicit = os.environ.get("TRUST_AUDITOR_ALLOW_PERFORMANCE_STUB", "").strip().lower()
+    if explicit in ("1", "true", "yes"):
+        return True
+    if explicit in ("0", "false", "no"):
+        return False
+    mode = os.environ.get("AP2_MODE", "stub").lower()
+    return mode != "live"
+
+
 def list_base_urls(env_list: str, env_single: str | None = None) -> list[str]:
     """Comma-separated bases in *env_list*, else single *env_single* env."""
     raw = os.environ.get(env_list, "").strip()

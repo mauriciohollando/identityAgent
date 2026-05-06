@@ -10,6 +10,7 @@ from typing import Any
 import httpx
 
 from config import PERF_AGGREGATION
+from config import allow_performance_stub
 from config import list_base_urls
 from audit_regimes.anti_abuse import disagreement_detected
 
@@ -48,7 +49,7 @@ async def _fetch_mcp_base(
 
 def _aggregate(success_rates: list[float]) -> float:
     if not success_rates:
-        return DEFAULT_SUCCESS_RATE
+        return 0.0
     if PERF_AGGREGATION == "mean":
         return float(sum(success_rates) / len(success_rates))
     return float(statistics.median(success_rates))
@@ -58,6 +59,16 @@ async def get_performance_history(target_agent_id: str, context: str) -> dict[st
     """Multi-source MCP aggregation with disagreement detection."""
     bases = list_base_urls("MCP_SERVER_URLS", "MCP_SERVER_BASE_URL")
     if not bases:
+        if not allow_performance_stub():
+            return {
+                "success_rate": 0.0,
+                "sample_size": 0,
+                "source": "unavailable",
+                "sources": [],
+                "aggregation": "n/a",
+                "high_disagreement": False,
+                "context": context,
+            }
         seed = sum(ord(c) for c in target_agent_id) % 17
         success_rate = min(0.95, max(0.35, DEFAULT_SUCCESS_RATE + seed / 100))
         sample = 12 + seed
